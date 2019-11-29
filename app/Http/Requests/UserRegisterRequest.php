@@ -26,6 +26,7 @@ class UserRegisterRequest extends FormRequest
         return [
             'first_name' => 'required|string',
             'last_name' => 'required|string',
+            'username'  => 'required|string|unique:users',
             'email' => 'required|string|email|unique:users',
             'password' => 'required|string|confirmed'
         ];
@@ -34,7 +35,7 @@ class UserRegisterRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'A title is required',
+            'username.required' => 'A title is required',
             'email.required'  => 'A message is required',
         ];
     }
